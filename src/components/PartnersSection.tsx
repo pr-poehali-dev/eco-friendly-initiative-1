@@ -14,7 +14,7 @@ export function PartnersSection() {
   return (
     <section className="flex flex-wrap items-center justify-center gap-6 md:gap-10 px-4 py-8">
       {partners.map((partner) => (
-        <div key={partner.name} className="flex items-center gap-2 text-gray-500">
+        <div key={partner.name} className="flex items-center gap-2 text-gray-400">
           <Icon name={partner.icon} size={16} />
           <span className="text-sm font-medium">{partner.name}</span>
         </div>

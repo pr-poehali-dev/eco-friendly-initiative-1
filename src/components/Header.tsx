@@ -2,28 +2,28 @@ import { Button } from "@/components/ui/button"
 
 export function Header() {
   return (
-    <header className="flex items-center justify-between px-8 py-4">
+    <header className="flex items-center justify-between px-8 py-4 bg-white/70 backdrop-blur-sm border-b border-blue-100">
       <div className="flex items-center gap-2">
         <PlatformLogo />
-        <span className="text-lg font-semibold text-white">
+        <span className="text-lg font-semibold text-gray-800">
           ЦифраРядом
         </span>
       </div>
 
       <nav className="hidden md:flex items-center gap-8">
-        <a href="#" className="text-sm text-gray-300 hover:text-white transition-colors">
+        <a href="#" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
           Пожилым
         </a>
-        <a href="#" className="text-sm text-gray-300 hover:text-white transition-colors">
+        <a href="#" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
           Волонтёрам
         </a>
-        <a href="#" className="text-sm text-gray-300 hover:text-white transition-colors">
+        <a href="#" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
           База знаний
         </a>
-        <a href="#" className="text-sm text-gray-300 hover:text-white transition-colors">
+        <a href="#" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
           О проекте
         </a>
-        <a href="#" className="text-sm text-gray-300 hover:text-white transition-colors">
+        <a href="#" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
           Контакты
         </a>
       </nav>
