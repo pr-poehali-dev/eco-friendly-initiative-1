@@ -1,63 +1,52 @@
-import { Zap, Building2, ChevronDown, Info } from "lucide-react"
-import { Switch } from "@/components/ui/switch"
-import { ArrowUpRight } from "lucide-react"
+import { MapPin, ArrowUpRight, Clock, Phone } from "lucide-react"
+
+const locations = [
+  { name: "Библиотека №14", address: "ул. Ленина, 24", hours: "9:00–18:00", phone: "+7 (495) 111-22-33" },
+  { name: "Центр соцобслуживания", address: "пр. Мира, 7", hours: "10:00–17:00", phone: "+7 (495) 444-55-66" },
+]
 
 export function SendFundsCard() {
   return (
     <div className="rounded-2xl bg-[#141414] border border-[#262626] p-6 flex flex-col">
       <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-[#1f1f1f] border border-[#2a2a2a]">
-        <Zap className="h-5 w-5 text-gray-400" />
+        <MapPin className="h-5 w-5 text-gray-400" />
       </div>
 
-      <h3 className="mb-2 text-lg font-semibold text-white">Мгновенные переводы</h3>
-      <p className="mb-4 text-sm text-gray-400">Платите клиентам, партнёрам и поставщикам за секунды без задержек</p>
+      <h3 className="mb-2 text-lg font-semibold text-white">Офлайн-точки помощи</h3>
+      <p className="mb-4 text-sm text-gray-400">Найдите ближайшую библиотеку или соццентр, где волонтёр поможет лично</p>
 
       <a href="#" className="mb-6 inline-flex items-center text-sm text-gray-400 hover:text-white transition-colors">
-        Подробнее <ArrowUpRight className="ml-1 h-4 w-4" />
+        Открыть карту <ArrowUpRight className="ml-1 h-4 w-4" />
       </a>
 
-      <div className="mt-auto space-y-4 rounded-xl bg-[#1a1a1a] border border-[#262626] p-4">
-        <div className="flex items-center justify-between rounded-lg bg-[#0f0f0f] border border-[#262626] px-3 py-2.5">
-          <div className="flex items-center gap-3">
-            <Building2 className="h-5 w-5 text-gray-500" />
-            <div>
-              <p className="text-sm font-medium text-white">Операционный счёт</p>
-              <p className="text-xs text-gray-500">Доступно: 1 500 000 ₽</p>
+      <div className="mt-auto space-y-3 rounded-xl bg-[#1a1a1a] border border-[#262626] p-4">
+        {locations.map((loc, i) => (
+          <div key={i} className="rounded-lg bg-[#0f0f0f] border border-[#262626] px-3 py-3 space-y-2">
+            <div className="flex items-center gap-2">
+              <MapPin className="h-4 w-4 text-violet-400 shrink-0" />
+              <p className="text-sm font-medium text-white">{loc.name}</p>
+            </div>
+            <p className="text-xs text-gray-500 pl-6">{loc.address}</p>
+            <div className="flex items-center gap-4 pl-6">
+              <div className="flex items-center gap-1 text-gray-500">
+                <Clock className="h-3 w-3" />
+                <span className="text-xs">{loc.hours}</span>
+              </div>
+              <div className="flex items-center gap-1 text-gray-500">
+                <Phone className="h-3 w-3" />
+                <span className="text-xs">{loc.phone}</span>
+              </div>
             </div>
           </div>
-          <ChevronDown className="h-4 w-4 text-gray-500" />
-        </div>
+        ))}
 
-        <div>
-          <label className="mb-2 flex items-center gap-1 text-xs text-gray-400">
-            Введите сумму <Info className="h-3 w-3" />
-          </label>
-          <div className="flex items-center rounded-lg bg-[#0f0f0f] border border-[#262626] px-3 py-2.5">
-            <span className="text-gray-500 mr-2">₽</span>
-            <input
-              type="text"
-              placeholder="0,00"
-              className="flex-1 bg-transparent text-white placeholder-gray-600 outline-none text-sm"
-            />
-          </div>
-        </div>
-
-        <div>
-          <label className="mb-2 flex items-center gap-1 text-xs text-gray-400">
-            Назначение платежа <span className="text-violet-400">*</span> (Необязательно)
-          </label>
-          <div className="relative">
-            <textarea
-              placeholder="Сообщение для получателя..."
-              className="w-full rounded-lg bg-[#0f0f0f] border border-[#262626] px-3 py-2.5 text-sm text-white placeholder-gray-600 outline-none resize-none h-16"
-            />
-            <span className="absolute bottom-2 right-2 text-xs text-gray-600">0/200</span>
-          </div>
-        </div>
-
-        <div className="flex items-center justify-between pt-2">
-          <Switch className="data-[state=checked]:bg-violet-600" />
-          <span className="text-sm text-gray-400">Регулярный платёж</span>
+        <div className="rounded-lg bg-[#0f0f0f] border border-dashed border-[#333] px-3 py-3 text-center">
+          <p className="text-xs text-gray-500">Введите ваш адрес — найдём ближайшую точку</p>
+          <input
+            type="text"
+            placeholder="Ваш адрес..."
+            className="mt-2 w-full bg-transparent text-sm text-white placeholder-gray-600 outline-none text-center"
+          />
         </div>
       </div>
     </div>
